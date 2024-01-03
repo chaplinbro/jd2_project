@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Курс валют</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center;">
+    <img src="/web/static/images/logo.jpg" alt="iBanking Logo" style="margin-top: 10px; max-width: 100px;">
+    <div style="margin-top: 20px;">
+        <a href="/web/start" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Главная</a>
+        <a href="/web/news" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Новости</a>
+        <a href="/web/currency" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Курс валют</a>
+        <a href="/web/form" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Регистрация</a>
+        <a href="/web/enter" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Вход</a>
+    </div>
+</header>
+
+<style>
+    body {
+        text-align: center;
+    }
+    table {
+        margin: auto;
+        text-align: left;
+    }
+    table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+</style>
+
+<h3>Официальные курсы белорусского рубля по отношению к иностранным валютам,<br>
+    устанавливаемые Национальным банком Республики Беларусь ежедневно, на 18.01.2024.</h3>
+<h5>При поддержке iBanking</h5>
+<table>
+    <thead>
+    <tr>
+        <th>цифр. код</th>
+        <th>букв. код</th>
+        <th>наименование валюты</th>
+        <th>единиц</th>
+        <th>курс обмена</th>
+        <th>время обновления</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="currency : ${currenciesList}">
+        <td th:text="${currency.digitalCode}"></td>
+        <td th:text="${currency.letterCode}"></td>
+        <td th:text="${currency.name}"></td>
+        <td th:text="${currency.quantity}"></td>
+        <td th:text="${currency.exchangeRate}"></td>
+        <td th:text="${currency.updateTime}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<style>
+    table {
+        margin-bottom: 60px;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f5f5f5;
+        color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<footer style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center; margin-top: 20px;">
+    Телефон для справок: 911 <br>
+    Лучший банк в вашем городе!
+</footer>
+</body>
+</html>

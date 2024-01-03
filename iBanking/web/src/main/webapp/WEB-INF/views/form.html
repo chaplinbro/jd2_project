@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация нового пользователя</title>
+</head>
+<body>
+<header style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center;">
+    <img src="/web/static/images/logo.jpg" alt="iBanking Logo" style="margin-top: 10px; max-width: 100px;">
+    <div style="margin-top: 20px;">
+        <a href="/web/start" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Главная</a>
+        <a href="/web/news" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Новости</a>
+        <a href="/web/currency" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Курс валют</a>
+        <a href="/web/form" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Регистрация</a>
+        <a href="/web/enter" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Вход</a>
+    </div>
+</header>
+
+<div style="text-align: center; padding: 10px;">
+    <h2>Регистрация нового пользователя</h2>
+
+    <form method="post" action="/web/saveUser" >
+        <label for="email">Логин:</label>
+        <input type="text" id="email" name="email" required style="margin-bottom: 10px;"><br>
+
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required style="margin-bottom: 10px;"><br>
+
+        <label for="surname">Фамилия:</label>
+        <input type="text" id="surname" name="surname" required style="margin-bottom: 10px;"><br>
+
+        <label for="password">Пароль:</label>
+        <input type="text" id="password" name="password" required style="margin-bottom: 10px;"><br>
+
+        <input type="submit" value="Зарегистрироваться" >
+    </form>
+</div>
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f5f5f5;
+        color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<footer style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center; margin-top: 20px;">
+    Телефон для справок: 911 <br>
+    Лучший банк в вашем городе!
+</footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кредит</title>
+</head>
+<body>
+<header style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center;">
+    <img src="/web/static/images/logo.jpg" alt="iBanking Logo" style="margin-top: 10px; max-width: 100px;">
+    <div style="margin-top: 20px;">
+        <a href="/web/start" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Главная</a>
+        <a href="/web/news" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Новости</a>
+        <a href="/web/currency" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Курс валют</a>
+        <a href="/web/form" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Регистрация</a>
+        <a href="/web/enter" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Вход</a>
+    </div>
+</header>
+
+<nav style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center; position: fixed; top: 120px; left: 0; height: calc(100% - 120px); overflow-y: auto;">
+    <a href="/web/createNewBankAccount" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Открытие счета</a>
+    <a href="/web/createNewCard" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Зарегистрировать карту</a>
+    <a href="/web/deposit" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Пополнить счет</a>
+    <a href="/web/credit" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Оформить кредит</a>
+    <a href="/web/transfer" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Перевод со счета на счет</a>
+    <a href="/web/myProducts" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Посмотреть мои продукты</a>
+
+    <hr style="border-color: #fff; margin: 10px 0;">
+    <a href="/web/users" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Посмотреть зарегистрированных пользователей</a>
+    <a href="/web/delete" style="display: block; padding: 10px; margin-bottom: 5px; color: #cc0000;
+     text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Удалить пользователя</a>
+</nav>
+
+<div style="text-align: center; margin-top: 50px;">
+    <h2>Введите данные счета для взятия кредита.</h2>
+    <h3>Убедитесь, что вводите верный номер счета.</h3>
+
+    <form method="post" action="/web/creditProcess" onsubmit="return showConfirmation()">
+
+        <label>Введите номер счета: <input type="text" name="accountNumber" /></label><br/>
+        <label>Кредит на сумму: <input type="text" name="replenishmentAmount" /></label><br/>
+        <label for="transactionCurrency">В какой валюте оформить кредит:</label>
+        <select id="transactionCurrency" name="transactionCurrency" required style="margin-bottom: 10px;">
+            <option value="USD">USD</option>
+            <option value="BYN">BYN</option>
+            <option value="RUB">RUB</option>
+            <option value="EUR">EUR</option>
+        </select><br>
+
+        <input type="submit" value="Оформить кредит"/>
+    </form>
+</div>
+
+<script>
+    function showConfirmation() {
+        var result = confirm('Оформить кредит?');
+        return result;
+    }
+</script>
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f5f5f5;
+        color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<footer style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center; margin-top: 20px;">
+    Телефон для справок: 911 <br>
+    Лучший банк в вашем городе!
+</footer>
+</body>
+</html>
