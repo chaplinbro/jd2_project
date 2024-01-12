@@ -1,16 +1,13 @@
 package yacim.bankingApp.data.dao;
 
+import yacim.bankingApp.data.dao.common.BaseDao;
 import yacim.bankingApp.data.entity.BankCard;
 
-public interface BankCardDao {
+import java.util.List;
 
-    void createBankCard(BankCard bankCard);
+public interface BankCardDao extends BaseDao<BankCard> {
 
-    BankCard getBankCardById(String id);
+    List<BankCard> getAllCards();
 
-    void updateBankCard(BankCard bankCard);
-
-    boolean deleteBankCard(BankCard bankCard);
-
-    BankCard getBankCardByCardNumber(String cardNumber);
+    List<BankCard> getBankCardsByBankAccountId (String bankAccountId);
 }

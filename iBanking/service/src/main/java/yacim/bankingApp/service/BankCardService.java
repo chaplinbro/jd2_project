@@ -4,5 +4,5 @@ import yacim.bankingApp.data.model.BankCardDto;
 
 public interface BankCardService {
 
-    void createBankCard (BankCardDto bankCardDto);
+    void createBankCard(BankCardDto bankCardDto, String accountNumber);
 }

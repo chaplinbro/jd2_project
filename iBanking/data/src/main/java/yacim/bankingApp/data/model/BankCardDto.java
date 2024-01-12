@@ -1,6 +1,7 @@
 package yacim.bankingApp.data.model;
 
 import jakarta.persistence.Column;
+import yacim.bankingApp.data.entity.BankAccount;
 
 import java.time.LocalDate;
 
@@ -18,17 +19,20 @@ public class BankCardDto {
 
     private String cvv;
 
+    private BankAccount bankAccount;
+
 
     public BankCardDto() {
     }
 
-    public BankCardDto(String id, String cardNumber, String cardholderName, double card_balance, String cardCurrency, String cvv) {
+    public BankCardDto(String id, String cardNumber, String cardholderName, double card_balance, String cardCurrency, String cvv, BankAccount bankAccount) {
         this.id = id;
         this.cardNumber = cardNumber;
         this.cardholderName = cardholderName;
         this.card_balance = card_balance;
         this.cardCurrency = cardCurrency;
         this.cvv = cvv;
+        this.bankAccount = bankAccount;
     }
 
     public String getId() {
@@ -79,4 +83,11 @@ public class BankCardDto {
         this.cvv = cvv;
     }
 
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
 }

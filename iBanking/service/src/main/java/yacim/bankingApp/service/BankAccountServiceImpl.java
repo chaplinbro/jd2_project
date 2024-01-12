@@ -3,6 +3,7 @@ package yacim.bankingApp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yacim.bankingApp.data.dao.BankAccountDao;
+import yacim.bankingApp.data.dao.UserDao;
 import yacim.bankingApp.data.entity.BankAccount;
 import yacim.bankingApp.data.model.BankAccountDto;
 
@@ -14,13 +15,17 @@ public class BankAccountServiceImpl implements BankAccountService {
     @Autowired
     private BankAccountDao bankAccountDao;
 
+    @Autowired
+    private UserDao userDao;
+
     @Override
-    public void createBankAccount(BankAccountDto bankAccountDto) {
+    public void createBankAccount(BankAccountDto bankAccountDto,String userId) {
         BankAccount bankAccount = new BankAccount();
         bankAccount.setAccountNumber(randomAccountNumber());
         bankAccount.setAccountBalance(0.0);
         bankAccount.setAccountCurrency(bankAccountDto.getAccountCurrency());
-        bankAccountDao.createBankAccount(bankAccount);
+        bankAccount.setAccountOwner(userDao.getUserById(userId));
+        bankAccountDao.save(bankAccount);
     }
 
     private String randomAccountNumber() {

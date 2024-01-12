@@ -10,6 +10,7 @@ import yacim.bankingApp.data.entity.Currency;
 import java.util.List;
 
 @Repository
+@Transactional
 public class CurrencyDaoImpl implements CurrencyDao{
 
     private  final SessionFactory sessionFactory;
@@ -23,7 +24,6 @@ public class CurrencyDaoImpl implements CurrencyDao{
     }
 
     @Override
-    @Transactional
     public List<Currency> getAllCurrency() {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("FROM Currency", Currency.class).getResultList();

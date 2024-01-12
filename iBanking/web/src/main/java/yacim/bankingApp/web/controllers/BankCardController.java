@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import yacim.bankingApp.data.model.BankCardDto;
 import yacim.bankingApp.service.BankCardService;
 
@@ -16,14 +17,14 @@ public class BankCardController {
     private BankCardService bankCardService;
 
     @GetMapping("/createNewCard")
-    public String addBankCardUrl(Model model) {
-        model.addAttribute("bankCardDto", new BankCardDto());
+    public String addBankCardUrl() {
         return "createNewCard";
     }
 
     @PostMapping("/createNewCard")
-    public String addBankCard(@ModelAttribute("bankCardDto") BankCardDto bankCardDto) {
-        bankCardService.createBankCard(bankCardDto);
+    public String addBankCard(@ModelAttribute("bankCardDto") BankCardDto bankCardDto,
+                              @RequestParam("accountNumber") String accountNumber) {
+        bankCardService.createBankCard(bankCardDto, accountNumber);
         return "redirect:/enter";
     }
 }

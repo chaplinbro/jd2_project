@@ -6,25 +6,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import yacim.bankingApp.data.dao.UserDao;
-import yacim.bankingApp.data.entity.User;
+import yacim.bankingApp.data.model.RegistrationDto;
+import yacim.bankingApp.service.UserService;
 
 @Controller
-public class FormCotroller {
+public class FormController {
 
     @Autowired
-    UserDao userDao;
+    private UserService userService;
 
     @GetMapping("/form")
-    public String registration(Model model) {
-        model.addAttribute("use r", new User());
+    public String registration() {
         return "form";
     }
 
     @PostMapping("/saveUser")
-    public String saveNewUser(@ModelAttribute User user){
-        userDao.saveUser(user);
-        return "redirect:/enter";
+    public String saveNewUser(@ModelAttribute("registrationDto") RegistrationDto registrationDto){
+        userService.registration(registrationDto);
+        return "redirect:/start";
     }
 
 }

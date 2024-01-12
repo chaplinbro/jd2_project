@@ -16,8 +16,7 @@ public class TransferTransactionController {
     private AccountTransactionService accountTransactionService;
 
     @GetMapping("/transfer")
-    public String transferController(Model model) {
-        model.addAttribute("transferTransaction", new TransferTransactionDto());
+    public String transferController() {
         return "/transfer";
     }
 

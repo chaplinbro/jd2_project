@@ -1,6 +1,7 @@
 package yacim.bankingApp.web.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,7 @@ public class AccountTransactionController {
     private AccountTransactionService accountTransactionService;
 
     @GetMapping("/deposit")
-    public String replenishmentController(Model model) {
-        model.addAttribute("accountTransaction", new AccountTransactionDto());
+    public String replenishmentController() {
         return "deposit";
     }
 
@@ -28,8 +28,7 @@ public class AccountTransactionController {
     }
 
     @GetMapping("/credit")
-    public String creditController(Model model) {
-        model.addAttribute("accountTransaction", new AccountTransactionDto());
+    public String creditController() {
         return "credit";
     }
 

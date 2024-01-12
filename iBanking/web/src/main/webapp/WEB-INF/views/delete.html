@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Удаление пользователя</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои продукты</title>
 </head>
 <body>
 <header style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center;">
     <img src="/web/static/images/logo.jpg" alt="iBanking Logo" style="margin-top: 10px; max-width: 100px;">
     <div style="margin-top: 20px;">
         <a href="/web/start" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
-        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Главная</a>
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Главная</a>
         <a href="/web/news" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
-        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Новости</a>
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Новости</a>
         <a href="/web/currency" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
-        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Курс валют</a>
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Курс валют</a>
         <a href="/web/form" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
-        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Регистрация</a>
+         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Регистрация</a>
         <a href="/web/enter" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
-        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Вход</a>
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Профиль</a>
+        <a href="/web/logout" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+    #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Выйти</a>
+
     </div>
 </header>
 
@@ -43,6 +46,16 @@
      text-decoration: none; border-radius: 5px; background-color: #f5f5f5;">Удалить пользователя</a>
 </nav>
 
+<div style="text-align: center; padding: 20px;">
+    <h2>Удаление пользователя</h2>
+    <form action="/web/delete" method="post">
+        <label for="id">Введите ID пользователя:</label>
+        <input type="text" id="id" name="id" required>
+        <br>
+        <button type="submit">Удалить</button>
+    </form>
+</div>
+
 <style>
     footer {
         position: fixed;
@@ -58,7 +71,8 @@
 
 <footer style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center; margin-top: 20px;">
     Телефон для справок: 911 <br>
-    Лучший банк в вашем городе!
+    Лучший банк в вашем городе! <br>
+    <p style="font-size: 8px;">by Nikita Yakimovich</p>
 </footer>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Профиль</title>
 </head>
 <body>
 <header style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center;">
@@ -18,7 +18,9 @@
         <a href="/web/form" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
         #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Регистрация</a>
         <a href="/web/enter" style="display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
-        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Вход</a>
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Профиль</a>
+        <a href="/web/logout" id="logoutLink" style="display: none; display: inline-block; padding: 10px 20px; margin: 0 10px; background-color:
+        #cc0000; color: #fff; text-decoration: none; border-radius: 5px;">Выйти</a>
     </div>
 </header>
 
@@ -44,8 +46,9 @@
 </nav>
 
 <main style="text-align: center; margin: 50px;">
-    <h1>Вы успешно зарегестрировались на сайте iBanking</h1>
-    <p>Теперь вам доступные новые функции нашего банкинга. посмотрите меню слева</p>
+    <h1>Успешная регистрация на сайте iBanking</h1>
+    <p style="font-size: 22px;">Вы авторизированы. Ваш логин: <span th:text="${username}"></span> !</p>
+    <p style="font-size: 16px;">Теперь вам доступные новые функции нашего банкинга. посмотрите меню слева</p>
 
 </main>
 
@@ -64,7 +67,8 @@
 
 <footer style="background-color: #f5f5f5; color: #333; padding: 10px; text-align: center; margin-top: 20px;">
     Телефон для справок: 911 <br>
-    Лучший банк в вашем городе!
+    Лучший банк в вашем городе! <br>
+    <p style="font-size: 8px;">by Nikita Yakimovich</p>
 </footer>
 </body>
 </html>

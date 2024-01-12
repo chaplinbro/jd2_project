@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yacim.bankingApp.data.dao.AccountTransactionDao;
 import yacim.bankingApp.data.dao.BankAccountDao;
+import yacim.bankingApp.data.dao.TransferTransactionDao;
 import yacim.bankingApp.data.entity.AccountTransaction;
 import yacim.bankingApp.data.entity.BankAccount;
 import yacim.bankingApp.data.entity.TransferTransaction;
@@ -15,15 +16,19 @@ import java.time.LocalDateTime;
 @Service
 public class AccountTransactionServiceImpl implements AccountTransactionService {
 
-
     private final AccountTransactionDao accountTransactionDao;
 
     private final BankAccountDao bankAccountDao;
 
+    private final TransferTransactionDao transferTransactionDao;
+
     @Autowired
-    public AccountTransactionServiceImpl(AccountTransactionDao accountTransactionDao, BankAccountDao bankAccountDao) {
+    public AccountTransactionServiceImpl(AccountTransactionDao accountTransactionDao,
+                                         BankAccountDao bankAccountDao,
+                                         TransferTransactionDao transferTransactionDao) {
         this.accountTransactionDao = accountTransactionDao;
         this.bankAccountDao = bankAccountDao;
+        this.transferTransactionDao = transferTransactionDao;
     }
 
     @Override
@@ -43,8 +48,8 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
             accountTransaction.setTransactionCurrency(accountTransactionDto.getTransactionCurrency());
             accountTransaction.setTransactionType("replenishment");
 
-            bankAccountDao.updateBankAccount(bankAccount);
-            accountTransactionDao.saveTransaction(accountTransaction);
+            bankAccountDao.update(bankAccount);
+            accountTransactionDao.save(accountTransaction);
         } else  {
             System.out.println("Счет с номером " + accountNumber + " не найден");
         }
@@ -67,8 +72,8 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
             accountTransaction.setTransactionCurrency(accountTransactionDto.getTransactionCurrency());
             accountTransaction.setTransactionType("credit");
 
-            bankAccountDao.updateBankAccount(bankAccount);
-            accountTransactionDao.saveTransaction(accountTransaction);
+            bankAccountDao.update(bankAccount);
+            accountTransactionDao.save(accountTransaction);
         } else  {
             System.out.println("Счет с номером " + accountNumber + " не найден");
         }
@@ -116,11 +121,11 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
                 accountTransactionTo.setTransactionCurrency(transferTransactionDto.getTransactionCurrency());
                 accountTransactionTo.setTransactionType("transfer");
 
-                bankAccountDao.updateBankAccount(bankAccountFrom);
-                bankAccountDao.updateBankAccount(bankAccountTo);
-                accountTransactionDao.saveTransaction(transferTransaction);
-                accountTransactionDao.saveTransaction(accountTransactionFrom);
-                accountTransactionDao.saveTransaction(accountTransactionTo);
+                bankAccountDao.update(bankAccountFrom);
+                bankAccountDao.update(bankAccountTo);
+                transferTransactionDao.save(transferTransaction);
+                accountTransactionDao.save(accountTransactionFrom);
+                accountTransactionDao.save(accountTransactionTo);
 
             } else {
                 System.out.println("Недостаточно средств для перевода счета " + accountNumberFrom);

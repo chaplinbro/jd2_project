@@ -1,10 +1,8 @@
 package yacim.bankingApp.data.model;
 
-import yacim.bankingApp.data.entity.User;
+import java.util.List;
 
-public class BankAccountDto {
-
-    private String id;
+public class MyProductsBankAccountDto {
 
     private String accountNumber;
 
@@ -12,25 +10,17 @@ public class BankAccountDto {
 
     private String accountCurrency;
 
-    private User accountOwner;
+    private List<MyProductsBankCardDto> bankCards;
 
-    public BankAccountDto() {
+    public MyProductsBankAccountDto() {
     }
 
-    public BankAccountDto(String id, String accountNumber, double accountBalance, String accountCurrency, User accountOwner) {
-        this.id = id;
+    public MyProductsBankAccountDto(String accountNumber, double accountBalance, String accountCurrency,
+                                    List<MyProductsBankCardDto> bankCards) {
         this.accountNumber = accountNumber;
         this.accountBalance = accountBalance;
         this.accountCurrency = accountCurrency;
-        this.accountOwner = accountOwner;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.bankCards = bankCards;
     }
 
     public String getAccountNumber() {
@@ -57,11 +47,11 @@ public class BankAccountDto {
         this.accountCurrency = accountCurrency;
     }
 
-    public User getAccountOwner() {
-        return accountOwner;
+    public List<MyProductsBankCardDto> getBankCards() {
+        return bankCards;
     }
 
-    public void setAccountOwner(User accountOwner) {
-        this.accountOwner = accountOwner;
+    public void setBankCards(List<MyProductsBankCardDto> bankCards) {
+        this.bankCards = bankCards;
     }
 }

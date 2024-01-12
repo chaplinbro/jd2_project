@@ -4,5 +4,5 @@ import yacim.bankingApp.data.model.BankAccountDto;
 
 public interface BankAccountService {
 
-    void createBankAccount(BankAccountDto bankAccountDto);
+    void createBankAccount(BankAccountDto bankAccountDto,String userId);
 }

@@ -1,18 +1,16 @@
 package yacim.bankingApp.data.dao;
 
+import yacim.bankingApp.data.dao.common.BaseDao;
 import yacim.bankingApp.data.entity.BankAccount;
+import yacim.bankingApp.data.entity.BankCard;
 
-import java.sql.SQLException;
+import java.util.List;
 
-public interface BankAccountDao {
-
-    void createBankAccount(BankAccount bankAccount);
-
-    BankAccount getBankCardById(String id);
-
-    void updateBankAccount(BankAccount bankAccount);
-
-    boolean deleteBankAccount(BankAccount bankAccount);
+public interface BankAccountDao extends BaseDao<BankAccount> {
 
     BankAccount getBankAccountByAccountNumber(String accountNumber) ;
+
+    List<BankAccount> getAllBankAccounts();
+
+    List<BankAccount> getBankAccountsByUserId (String userId);
 }

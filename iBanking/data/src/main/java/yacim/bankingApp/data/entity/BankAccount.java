@@ -1,5 +1,6 @@
 package yacim.bankingApp.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import yacim.bankingApp.data.entity.common.BaseEntity;
 
@@ -18,11 +19,11 @@ public class BankAccount extends BaseEntity {
     @Column(name = "account_currency")
     private String accountCurrency;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User accountOwner;
 
-    @OneToMany(mappedBy ="bankAccount")
+    @OneToMany(mappedBy ="bankAccount", cascade = CascadeType.ALL)
     private List<BankCard> bankCards;
 
 
