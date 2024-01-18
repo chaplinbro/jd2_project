@@ -24,8 +24,18 @@ public class CurrencyDaoImpl implements CurrencyDao{
     }
 
     @Override
-    public List<Currency> getAllCurrency() {
+    public List<Currency> getAllForPagination(int startPosition, int pageSize) {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("FROM Currency", Currency.class).getResultList();
+        return session.createQuery("FROM Currency", Currency.class)
+                .setFirstResult(startPosition)
+                .setMaxResults(pageSize)
+                .getResultList();
+    }
+
+    public int getTotalCurrencyCount() {
+        Session session = sessionFactory.getCurrentSession();
+        Long count = session.createQuery("SELECT COUNT(*) FROM Currency", Long.class)
+                .uniqueResult();
+        return count.intValue();
     }
 }

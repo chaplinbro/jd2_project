@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface CurrencyDao {
 
-    List<Currency> getAllCurrency();
+    List<Currency> getAllForPagination(int startPosition, int pageSize);
+
+    int getTotalCurrencyCount();
 }

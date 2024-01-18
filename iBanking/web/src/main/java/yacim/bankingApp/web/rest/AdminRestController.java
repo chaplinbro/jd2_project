@@ -20,14 +20,6 @@ public class AdminRestController {
     @Autowired
     private UserDao userDao;
 
-//    @GetMapping("/users")
-//    public ResponseEntity<List<User>> getUsers() {
-//        List<User> users = userDao.getAllUsers();
-//        if (users.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        return new ResponseEntity<>(users, HttpStatus.OK);
-//    }
-
-
     @GetMapping("/users")
     public ResponseEntity<List<UserForAdminDto>> getUsers() {
 

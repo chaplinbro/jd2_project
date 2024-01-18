@@ -73,6 +73,20 @@ th {
     </tbody>
 </table>
 
+<div style="text-align: center;">
+    <ul class="pagination" style="display: inline-block;">
+        <li style="display: inline-block; margin-right: 5px;">
+            <a th:href="@{'/currency?page=0&size=10'}">1</a>
+        </li>
+        <li style="display: inline-block; margin-right: 5px;">
+            <a th:href="@{'/currency?page=1&size=10'}">2</a>
+        </li>
+        <li style="display: inline-block;">
+            <a th:href="@{'/currency?page=2&size=10'}">3</a>
+        </li>
+    </ul>
+</div>
+
 <style>
     table {
         margin-bottom: 60px;
